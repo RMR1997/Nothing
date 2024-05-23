@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(white 1%, transparent 1%) 0 0,
+    radial-gradient(white 1%, transparent 1%) 50px 50px,
+    radial-gradient(white 1%, transparent 1%) 100px 0px;
+  background-color: black;
+  background-size: 100px 100px;
+  animation: animateStars 20s linear infinite;
+}
+
+@keyframes animateStars {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 500px 0, 0 0, 0 0;
+  }
+}
+
+#click-text {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3vw; /* Ukuran font responsif */
+  color: white; /* Warna putih */
+  display: none; /* Awalnya tidak ditampilkan */
+  white-space: nowrap; /* Mencegah teks terpotong */
+  pointer-events: none; /* Agar tidak mengganggu interaksi dengan elemen lainnya */
+  animation: slideIn 1s forwards; /* Animasi slide-in selama 1 detik */
+}
+
+#under-cube-text {
+  position: absolute;
+  bottom: 10%; /* Atur posisi di bawah kubus */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2vw; /* Atur ukuran font responsif */
+  color: white; /* Warna putih */
+  text-align: center; /* Pusatkan teks */
+}
+#custom-button {
+  width: 5vw; /* Ukuran tombol responsif */
+  height: 5vw; /* Ukuran tombol responsif */
+  border-radius: 50%; /* Untuk membuat tombol menjadi lingkaran */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1qTnzM-86m5Y1upClsBdFl0tkmmsGVq81X6iXRymTLQ&s");
+  background-size: cover; /* Agar gambar latar belakang menutupi seluruh area tombol */
+  border: none; /* Tidak ada border */
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); /* Mulai dari luar layar sebelah kiri */
+    opacity: 0; /* Awalnya tidak terlihat */
+  }
+  to {
+    transform: translateX(-50%); /* Akhirnya berada di tengah layar */
+    opacity: 1; /* Muncul sepenuhnya */
+  }
+}
+
+#click-text.show {
+  display: block;
+}
+
+/* Media queries untuk layar berukuran kecil */
+@media only screen and (max-width: 900px) {
+  #click-text {
+    font-size: 6vw; /* Ukuran font responsif */
+  }
+
+  #under-cube-text {
+    font-size: 4vw; /* Ukuran font responsif */
+  }
+}
